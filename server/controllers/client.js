@@ -1,7 +1,7 @@
 import Product from "../models/Product.js";
 import ProductStat from "../models/ProductStat.js";
 import User from "../models/User.js";
-import Transaction from "../models/Transactions.js";
+import Transaction from "../models/Transaction.js";
 
 export const getProducts = async (req, res) => {
   try {
