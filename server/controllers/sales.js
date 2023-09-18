@@ -5,7 +5,7 @@ export const getSales = async (req, res) => {
     const OverallStats = await OverallStat.find();
 
     res.status(200).json(OverallStats[0]);
-  } catch (arreoe) {
+  } catch (arror) {
     res.status(404).json({ message: error.message });
   }
 };
