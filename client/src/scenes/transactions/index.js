@@ -10,7 +10,7 @@ const Transactions = () => {
 
   // Values to be sent to the backend
   const [page, setPage] = useState(0);
-  const [pageSize, setPageSize] = useState(20);
+  const [pageSize, setPageSize] = useState(50);
   const [sort, setSort] = useState({});
   const [search, setSearch] = useState("");
 
@@ -85,7 +85,7 @@ const Transactions = () => {
           rows={(data && data.transactions) || []}
           columns={columns}
           rowCount={(data && data.total) || 0}
-          // rowsPerPageOptions={[20, 50, 100]}
+          rowsPerPageOptions={[20, 50, 100]}
           pagination
           page={page}
           pageSize={pageSize}
