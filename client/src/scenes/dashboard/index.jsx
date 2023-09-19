@@ -19,6 +19,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import BreakdownChart from "components/BreakdownChart";
 import OverviewChart from "components/OverviewChart";
 import { useGetDashboardQuery } from "state/api";
+import StatBox from "components/StatBox";
 
 const columns = [
   {
@@ -72,9 +73,23 @@ const Dashboard = () => {
             }}
           >
             <DownloadOutlined sx={{ mr: "10px" }} />
+            Download Reports
           </Button>
         </Box>
       </FlexBetween>
+
+      <Box
+        mt="20px"
+        display="grid"
+        gridTemplateColumns="repeat(12, 1fr)"
+        gridAutoRows="160px"
+        gap="20px"
+        sx={{
+          "& > div": { gridColumn: isNonMediumScreens ? undefined : "span 12" },
+        }}
+      >
+        {/* ROW 1 */}
+      </Box>
     </Box>
   );
 };
