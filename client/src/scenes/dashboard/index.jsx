@@ -70,6 +70,9 @@ const Dashboard = () => {
               fontSize: "14px",
               fontWeight: "bold",
               padding: "10px 20px",
+              "&:hover": {
+                backgroundColor: theme.palette.secondary.dark, // Change the background color on hover
+              },
             }}
           >
             <DownloadOutlined sx={{ mr: "10px" }} />
