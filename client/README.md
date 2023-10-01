@@ -2,10 +2,10 @@
 
 <div align="center">
 
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
+  <!-- <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <br/> -->
 
-  <h3><b>Microverse README Template</b></h3>
+  <h3><b>README Template</b></h3>
 
 </div>
 
@@ -65,7 +65,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://63b760648bdb802e810a0063--calm-chebakia-029401.netlify.app/)
+- [Live Demo](https://admin-dashboard-jw3x.onrender.com/)
 
 ## 🚀 Project presentation <a name="presentation"></a>
 
