@@ -4,17 +4,22 @@ import { Box, Typography, useTheme } from "@mui/material";
 import { useGetSalesQuery } from "state/api";
 
 const BreakdownChart = ({ isDashboard = false }) => {
+  // Fetch sales data using the useGetSalesQuery hook
   const { data, isLoading } = useGetSalesQuery();
   const theme = useTheme();
 
+  // Display loading message while data is being fetched
   if (!data || isLoading) return "Loading...";
 
+  // Define colors for the pie chart
   const colors = [
     theme.palette.secondary[500],
     theme.palette.secondary[300],
     theme.palette.secondary[300],
     theme.palette.secondary[500],
   ];
+
+  // Format the sales data for the pie chart
   const formattedData = Object.entries(data.salesByCategory).map(
     ([category, sales], i) => ({
       id: category,
@@ -32,9 +37,12 @@ const BreakdownChart = ({ isDashboard = false }) => {
       minWidth={isDashboard ? "325px" : undefined}
       position="relative"
     >
+      {/* Render the pie chart using ResponsivePie component from @nivo/pie */}
       <ResponsivePie
         data={formattedData}
+        // Customize the chart theme
         theme={{
+          // Customize axis styling
           axis: {
             domain: {
               line: {
@@ -56,6 +64,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
               },
             },
           },
+          // Customize legend, tooltip, and other styles
           legends: {
             text: {
               fill: theme.palette.secondary[200],
@@ -91,6 +100,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
           modifiers: [["darker", 2]],
         }}
         legends={[
+          // Configure legend settings
           {
             anchor: "bottom",
             direction: "row",
@@ -116,6 +126,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
           },
         ]}
       />
+      {/* Display total sales amount */}
       <Box
         position="absolute"
         top="50%"

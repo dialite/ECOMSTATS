@@ -21,7 +21,7 @@ import {
   Box,
   Typography,
   MenuItem,
-  Menu
+  Menu,
 } from "@mui/material";
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
@@ -30,8 +30,11 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
+
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
     <AppBar
@@ -44,7 +47,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* LEFT SIDE */}
         <FlexBetween>
-          <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+          <IconButton onClick={toggleSidebar}>
             <MenuIcon />
           </IconButton>
           <FlexBetween
@@ -115,7 +118,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               anchorEl={anchorEl}
               open={isOpen}
               onClose={handleClose}
-              anchorOrigin={{ vertical: "buttom", horizontal: "center" }}
+              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
               <MenuItem onClick={handleClose}>Log Out</MenuItem>
             </Menu>
