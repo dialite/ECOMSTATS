@@ -25,15 +25,22 @@ import {
 } from "@mui/material";
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
+  // Redux dispatch function
   const dispatch = useDispatch();
+  // Access MUI theme
   const theme = useTheme();
 
+  // State for menu anchor
   const [anchorEl, setAnchorEl] = useState(null);
+  // Check if the menu is open
   const isOpen = Boolean(anchorEl);
 
+  // Handle opening menu
   const handleClick = (event) => setAnchorEl(event.currentTarget);
+  // Handle closing menu
   const handleClose = () => setAnchorEl(null);
 
+  // Toggle sidebar state
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
@@ -47,9 +54,11 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* LEFT SIDE */}
         <FlexBetween>
+          {/* Toggle sidebar button */}
           <IconButton onClick={toggleSidebar}>
             <MenuIcon />
           </IconButton>
+          {/* Search bar */}
           <FlexBetween
             backgroundColor={theme.palette.background.alt}
             borderRadius="9px"
@@ -65,6 +74,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
 
         {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">
+          {/* Dark/Light mode toggle */}
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkModeOutlined sx={{ fontSize: "25px" }} />
@@ -72,9 +82,11 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               <LightModeOutlined sx={{ fontSize: "25px" }} />
             )}
           </IconButton>
+          {/* Settings button */}
           <IconButton>
             <SettingsOutlined sx={{ fontSize: "25px" }} />
           </IconButton>
+          {/* User profile button */}
           <FlexBetween>
             <Button
               onClick={handleClick}
@@ -86,6 +98,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 gap: "1rem",
               }}
             >
+              {/* User profile image */}
               <Box
                 component="img"
                 alt="profile"
@@ -96,6 +109,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 sx={{ objectFit: "cover" }}
               />
               <Box textAlign="left">
+                {/* User name */}
                 <Typography
                   fontWeight="bold"
                   fontSize="0.85rem"
@@ -103,6 +117,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 >
                   {user.name}
                 </Typography>
+                {/* User occupation */}
                 <Typography
                   fontSize="0.75rem"
                   sx={{ color: theme.palette.secondary[200] }}
@@ -110,16 +125,19 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                   {user.occupation}
                 </Typography>
               </Box>
+              {/* Dropdown arrow */}
               <ArrowDropDownOutlined
                 sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
               />
             </Button>
+            {/* User menu */}
             <Menu
               anchorEl={anchorEl}
               open={isOpen}
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
+              {/* Logout option */}
               <MenuItem onClick={handleClose}>Log Out</MenuItem>
             </Menu>
           </FlexBetween>
