@@ -32,9 +32,12 @@ Enhance data management with our high-performance Admin Dashboard, offering seam
 <ul>
   <li>React</li>
   <li>Redux</li>
-  <li>Tailwind CSS</li>
-  <li>Vite</li>
-  <li>OpenAI</li>
+  <li>Express.js</li>
+  <li>MongoDB</li>
+  <li>Node.js</li>
+  <li>Nivo</li>
+  <li>Material UI</li>
+  
 </ul>
 
 <!-- Features -->
